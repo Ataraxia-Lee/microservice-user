@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+security:
+  oauth2:
+    client:
+      client_id: dimples
+      client_secret: 123456
+    resource:
+      #根据此地址在资源服务器做token的鉴别操作
+      token-info-uri: http://localhost:8082/oauth/check_token
+
+
+
