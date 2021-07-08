@@ -10,7 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 
 /**
- * @author MyPC
+ * @author lilong
  */
 @Configuration
 @EnableResourceServer
