@@ -1,5 +1,6 @@
 package com.ataraxia.microservices.controller;
 
+import com.ataraxia.microservices.util.response.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,11 +20,11 @@ public class UserController {
 
     @ApiOperation(value = "向客人问好")
     @GetMapping("/index")
-    public List<String> index() {
+    public Result index() {
         SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<String> list = new ArrayList<>();
         list.add("1");
-        return list;
+        return Result.success(null, list);
     }
 
 }

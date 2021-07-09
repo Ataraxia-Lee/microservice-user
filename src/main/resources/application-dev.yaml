@@ -4,11 +4,39 @@ server:
 security:
   oauth2:
     client:
-      client_id: dimples
+      client_id: microservices
       client_secret: 123456
     resource:
       #根据此地址在资源服务器做token的鉴别操作
       token-info-uri: http://localhost:8082/oauth/check_token
 
+#数据源配置
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/microservice
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+    druid:
+      max-wait: 6000
+      initial-size: 10
+      min-idle: 10
+      max-active: 200
 
+#mybatis 配置
+mybatis-plus:
+  type-aliases-package: com.ataraxia.microservices.entity
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+  global-config:
+    db-config:
+      #主键自增
+      id-type: auto
 
+#SQL 日志
+logging:
+  level:
+    com.ataraxia.microservices.dao: debug
