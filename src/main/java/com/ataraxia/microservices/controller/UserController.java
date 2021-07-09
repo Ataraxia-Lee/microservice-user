@@ -1,5 +1,7 @@
 package com.ataraxia.microservices.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,9 +13,11 @@ import java.util.List;
 /**
  * @author lilong
  */
+@Api(tags = "首页模块")
 @RestController
 public class UserController {
 
+    @ApiOperation(value = "向客人问好")
     @GetMapping("/index")
     public List<String> index() {
         SecurityContextHolder.getContext().getAuthentication().getPrincipal();
